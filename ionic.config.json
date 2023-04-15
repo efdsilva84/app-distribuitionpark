@@ -1,0 +1,7 @@
+{
+  "name": "parkmanaus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
