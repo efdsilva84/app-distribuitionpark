@@ -1,0 +1,99 @@
+.ion-color-rose {
+  --ion-color-base-rgb: var(--ion-color-rose-rgb);
+  --ion-color-contrast: var(--ion-color-rose-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-rose-contrast-rgb);
+  --ion-color-shade: var(--ion-color-rose-shade);
+  --ion-color-tint: var(--ion-color-rose-tint);
+}
+
+div[slot='content'] {
+  background: rgba(var(--ion-color-rose-rgb), 0.25);
+}
+ion-col{
+  font-size: 11px;
+}
+.topo{
+  display: flex;
+  border-bottom: 2px solid #000
+}
+.topo-logo{
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.idrg{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.topo-logo{
+  border-right: 2px solid #000;
+}
+.topo-info{
+  width: 60%;
+  background-color: chocolate;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5px;
+  padding: -5px;
+}
+.col{
+  width: 100%;
+  margin: 0.5rem;
+  font-size: 1em;
+}
+.coluna{
+  font-size: 0.8rem;
+}
+.linha{
+  margin-top: -1rem;
+  font-size: 1rem;
+
+}
+.cnh{
+  margin-top: -0.8rem;
+}
+/*.newCarreta{
+  background-color: darkseagreen;
+  display: none;
+}
+.newShowCarreta{
+  display: block;
+}*/
+
+ion-card{
+  border: 2px solid #000;
+  margin-bottom: 2rem;
+}
+.as{
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+.btn{
+  margin-top: 0.5rem;
+}
+.header-alert{
+  background-color: brown;
+}
+.aut{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ion-img{
+    border-radius: 50px;
+    width: 50%;
+    height: 2rem;
+    margin: .3rem;
+  }
+}
+
+
+
+

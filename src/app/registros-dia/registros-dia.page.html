@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="back()">
+      <ion-icon name="arrow-back"> </ion-icon>
+    </ion-buttons>
+    <ion-icon class="ion-padding" (click)="logout()" color="light" slot="end" size="small"  name="log-out">Sair</ion-icon>
+
+    <ion-title>Registros</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form>
+    <ion-searchbar placeholder="buscar" (input)="search($event)"></ion-searchbar>
+  </form>
+
+
+
+  <ion-card *ngFor="let item of listaPorEmpresa; let i = index">
+    <div class="topo">
+          <div class="topo-logo">
+            <img width="100px" height="25px" src="../../assets/iconOficial.png"/>
+            <h2>AS</h2>
+          </div>
+          <div class="idrg">
+            {{item.id_rg}}
+          </div>
+    </div>
+<div class = "row coluna">
+  <div  class = "col title"><b>Trasnportadora:</b></div>
+  <div  class = "col "><b>Nome:</b>&nbsp;</div>
+
+</div>
+
+
+<div class = "row linha">
+  <div  class = "col">{{item.empresa_mot.toUpperCase()}}&nbsp;</div>
+  <div class = "col">{{item.mot.toUpperCase()}}</div>
+</div>
+
+<div class = "row coluna cnh">
+  <div  class = "col title"><b>CNH:</b></div>
+  <div  class = "col "><b>Data:</b>&nbsp;</div>
+</div>
+
+
+<div class = "row linha">
+  <div  class = "col">{{item.cnh_mot}}&nbsp;</div>
+  <div class = "col">{{item.dt_open}}</div>
+</div>
+
+<div class = "row coluna cnh">
+  <div  class = "col title"><b>Placa Cavalo:</b></div>
+  <div  class = "col "><b>Placa Carreta:</b>&nbsp;</div>
+</div>
+
+
+<div class = "row linha">
+  <div  class = "col">{{item.placa_cv.toUpperCase()}}&nbsp;</div>
+  <div class = "col">{{item.placa_exit}}</div>
+</div>
+
+<div class = "row coluna cnh">
+  <div  class = "col title"><b>Hora:</b></div>
+  <div *ngIf="item.n_cont_saida"  class = "col "><b>N° Container:</b>&nbsp;</div>
+  <div *ngIf="item.n_cont_saida === null "  class = "col "><b></b>&nbsp;</div>
+</div>
+
+
+<div class = "row linha">
+  <div  class = "col">{{item.hr_env_portaria}}&nbsp;</div>
+  <div class = "col">{{item.n_cont_saida}}</div>
+  <div *ngIf="item.n_cont_saida === null "  class = "col"></div>
+
+</div>
+
+<div class = "row coluna cnh">
+  <div  class = "col title"><b>Lacres:</b></div>
+</div>
+
+
+<div class = "row linha">
+  <div  class = "col">{{item.lcr_saida}}&nbsp;</div>
+
+
+</div>
+
+<div class = "row as im">
+  <div  class = "col">AUTORIZAÇÃO DE SAIDA</div>
+</div>
+<div class="row aut">
+
+    <ion-text class="ion-padding"><b>Autorizante:&nbsp;{{item.nome_aut_inquilino}}</b></ion-text>
+
+  <ion-img width="50px" src="{{url_img}}{{item.img_logo}}"></ion-img>
+
+</div>
+<ion-button color="primary" slot="end" size="small"><ion-icon name="add"></ion-icon></ion-button>
+
+<ion-button *ngIf="usuario.perfil === 'portaria'"  (click)="registarSaida(item)" expand="block">REGISTRAR SAÍDA</ion-button>
+
+  <ion-button *ngIf="usuario.perfil === 'inquilino'"  (click)="addDados(item)"><ion-icon  name="add"></ion-icon></ion-button>
+
+    <ion-card-content>
+      </ion-card-content>
+
+
+  </ion-card>
+
+
+
+
+
+  <ion-fab *ngFor="let item of listaRg" slot="fixed" horizontal="start" vertical="bottom">
+    <ion-fab-button>
+      <ion-label>{{listaRg.length}}</ion-label>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

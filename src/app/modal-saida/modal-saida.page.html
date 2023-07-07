@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{obj.placa_cv.toUpperCase()}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  <ion-content [fullscreen]="false" class="ion-padding" >
+
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+
+  <ion-list>
+
+    <form [formGroup]="fGroup">
+
+    <ion-item class="exit">
+      <ion-label position="floating">Placa Saída</ion-label>
+      <ion-input id="saida_car" type="text" formControlName="placa_exit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Placa Saida:</ion-label>
+      <ion-input id="lcr_carr" formControlName="lcr_saidaa"></ion-input>
+    </ion-item>
+
+    <div *ngIf="tiporg === '2'">
+
+      <!--item exibido somente se tipo de rgistro for container-->
+      <ion-item>
+        <ion-label position="floating">Placa Prancha:</ion-label>
+        <ion-input id="dados_car" type="text" formControlName="dados_cont_saida"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">N° Container saída:</ion-label>
+        <ion-input id="n_car" formControlName="n_cont_saida"></ion-input>
+      </ion-item>
+
+  </div>
+
+    <ion-item>
+      <ion-label position="floating">Lacres Saída</ion-label>
+      <ion-input id="lcr_car" formControlName="lcr_saida"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-checkbox slot="start" (ionChange)="_vericaCheck($event)" formControlName="estado_saida"></ion-checkbox>
+      <ion-label>somente cavalo</ion-label>
+    </ion-item>
+
+
+
+  </form>
+
+
+
+  <ion-button (click)="addDados()">SALVAR</ion-button>
+
+
+  </ion-list>
+
+
+</ion-content>
+
+
+

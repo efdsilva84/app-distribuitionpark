@@ -1,0 +1,144 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      REGISTRO CARRETA
+    </ion-title>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button  (click)="dismiss()">
+        <ion-icon slot="end" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid class="main-header">
+    <div align="center">
+      <ion-avatar>
+        <img src="../../assets/iconCarreta.jpg" />
+      </ion-avatar>
+    </div>
+  </ion-grid>
+
+
+  <ion-list lines="full" class="ion-padding" color="light">
+  <form  color="light"  [formGroup]="dadosForm" class="formCarreta ion-padding" id="carreta" #formDir="ngForm">
+    <ion-item>
+      <ion-label position="floating">Motorista:</ion-label>
+      <ion-input type="text" class="custom" formControlName="mot"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">CNH</ion-label>
+      <ion-input type="tel" class="custom" formControlName="cnh_mot"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Transportadora</ion-label>
+      <ion-input type="text"  formControlName="empresa_mot"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destino:</ion-label>
+        <ion-select  interface="action-sheet" class="custom-options" formControlName="destino_mot">
+       <ion-select-option *ngFor="let item of listaEmpresas" value="{{item.id_empresa}}">{{item.nome_empresa}}
+      </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item slot="end">
+      <ion-label position="floating">Placa Cavalo:</ion-label>
+      <ion-input type="text" id="placa" name="placa"   formControlName="placa_cv"></ion-input>
+    </ion-item>
+
+    <div style="display:flex; justify-content: flex-end; width: 100%; font-size: 12;" >
+      <ion-checkbox class="ion-padding" (ionChange)="_vericaCheckCavalo($event)" slot="end">somente cavalo</ion-checkbox>
+    </div>
+
+    <ion-item>
+        <ion-label position="floating">Placa Carreta</ion-label>
+        <ion-input id="itemcarreta" type="text"  formControlName="placa_carreta"></ion-input>
+      </ion-item>
+
+
+
+      <!--<ion-item lines="none" class="ion-no-border">
+        <ion-button id="btn" slot="end" type="button" onclick="addInput()"><ion-icon  name="add"></ion-icon></ion-button>
+      </ion-item>
+      <ion-item class="newCarreta" id="novaCarreta">
+        <ion-label position="floating">Carreta saida:</ion-label>
+        <ion-input type="text"  formControlName="placas_carreta_saida"></ion-input>
+      </ion-item>-->
+
+
+      <div style="display:flex; justify-content: space-between; width: 100%;">
+        <ion-checkbox id="itemvazia" class="ion-padding" (ionChange)="_vericaCheck($event)" formControlName="estado" slot="end">vazia</ion-checkbox>
+        <ion-checkbox id="itemlacres" class="ion-padding"   (ionChange)="verficaLacre($event)" formControlName="lacres" slot="start">sem lacres</ion-checkbox>
+      </div>
+
+
+
+    <ion-item>
+      <ion-label position="floating">Lacres</ion-label>
+      <ion-input type="text" id="lc"   formControlName="lacres"></ion-input>
+    </ion-item>
+
+
+
+
+  </form>
+  <ion-button class="ion-padding" (click)="registrar()" type="submit" expand="full">Registrar</ion-button>
+
+  </ion-list>
+
+
+  <!--<h2 class="ion-padding">Novo Registro de Entrada</h2>
+  <form  [formGroup]="dadosForm" class="formCarreta ion-padding" id="carreta">
+    <ion-item>
+      <ion-label position="floating">Motorista:</ion-label>
+      <ion-input class="custom" formControlName="mot"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">CNH</ion-label>
+      <ion-input class="custom" formControlName="cnh_mot"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Empresa</ion-label>
+      <ion-input   formControlName="empresa_mot"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destino:</ion-label>
+        <ion-select interface="popover" class="custom-options" formControlName="destino_mot">
+       <ion-select-option *ngFor="let item of listaEmpresas" value="{{item.id_empresa}}">{{item.nome_empresa}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Placa Cavalo:</ion-label>
+      <ion-input   formControlName="placa_cv"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Placa Carreta</ion-label>
+      <ion-input   formControlName="placa_carreta"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Lacres</ion-label>
+      <ion-input   formControlName="lacres"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="registrar()" type="submit" expand="block">Registrar</ion-button>
+    </ion-item>
+
+  </form>-->
+</ion-content>

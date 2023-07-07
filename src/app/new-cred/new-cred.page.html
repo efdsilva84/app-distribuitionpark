@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Nova Credencial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+
+  <form [formGroup]="dadosCred" (ngSubmit)="cadcred(dadosCred)" #formDir="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-input type="tel" label="N° Credencial" labelPlacement="floating" formControlName="n_cred"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <div style="display:flex; justify-content: flex-end; width: 100%; font-size: 12;" >
+          <ion-checkbox formControlName="temp" class="ion-padding" (ionChange)="_credTemporaria($event)" slot="end">temporária ?</ion-checkbox>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Funcionário:</ion-label>
+          <ion-select  interface="action-sheet" class="custom-options" formControlName="fk_funcionario">
+         <ion-select-option *ngFor="let item of listaFun" value="{{item.id_funcionario}}">{{item.nome_func}}&nbsp;&nbsp;{{item.empresa_fun}}
+        </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Veiculos:</ion-label>
+          <ion-select  interface="action-sheet" class="custom-options" formControlName="id_veiculo_func">
+         <ion-select-option *ngFor="let item of listaCar" value="{{item.id_veiculo}}">{{item.modelo_veiculo}}&nbsp;&nbsp;{{item.cor_veiculo}}&nbsp;&nbsp;{{item.placa_veiculo}}
+        </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="CNH" labelPlacement="floating" formControlName="cnh_func"></ion-input>
+      </ion-item>
+    </ion-list>
+
+      <ion-item>
+        <ion-label>Empresa:</ion-label>
+          <ion-select  interface="action-sheet" class="custom-options" formControlName="id_empresa_func">
+         <ion-select-option *ngFor="let item of listaEmpresas" value="{{item.id_empresa}}">{{item.nome_empresa}}
+        </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label>Tipo de Acesso:</ion-label>
+          <ion-select  interface="action-sheet" class="custom-options" formControlName="id_tipo_acesso">
+         <ion-select-option *ngFor="let item of listaAcessos" value="{{item.id_acesso}}">{{item.horario_acesso}}
+        </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+<ion-item>
+
+  <ion-button type="submit" class="btn sv">Salvar</ion-button>
+
+</ion-item>
+
+
+
+
+
+    </form>
+    <ion-item>
+      <ion-button color="success" (click)="nova()" slot="start">Nova Credencial</ion-button>
+      <ion-button color="primary"(click)="cred()" slot="start">Ver Credenciais</ion-button>
+
+
+    </ion-item>
+
+</ion-content>

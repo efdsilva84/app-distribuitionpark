@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Veículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Veículo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<p class="ion-padding">cadastre o veículo do novo usuário</p>
+  <form [formGroup]="dadosCar" (ngSubmit)="salvarVeiculo(dadosCar)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Tipo:</ion-label>
+          <ion-select  interface="action-sheet" class="custom-options" formControlName="fk_tipo_veiculo">
+         <ion-select-option *ngFor="let item of listaTipo" value="{{item.id_tipo}}">{{item.tipo}}
+        </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Placa" labelPlacement="floating" formControlName="placa_veiculo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Marca" labelPlacement="floating" formControlName="marca_veiculo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Modelo" labelPlacement="floating" formControlName="modelo_veiculo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Cor" labelPlacement="floating" formControlName="cor_veiculo"></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-button type="submit" class="btn sv">Salvar</ion-button>
+
+    </form>
+</ion-content>

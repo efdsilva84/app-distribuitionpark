@@ -1,0 +1,38 @@
+<ion-content>
+  <div class="login-section heading">
+    <div class="heading ion-padding">
+      <img src="../../assets/iconOficial.png" width="300"/>
+      <p>Faça Login</p>
+    </div>
+
+    <div class="login-form ion-padding">
+        <div class="form-input">
+          <form [formGroup]="fGroup">
+            <ion-item>
+              <ion-label position="floating">Login:</ion-label>
+              <ion-input type="text" formControlName="login" ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Senha:</ion-label>
+              <ion-icon (click)="openPass($event)" style="margin-top: 1.8rem;" slot="end" name="eye-outline"></ion-icon>
+
+              <ion-input id="senha"  type="password" aria-label="senha" formControlName="senha" ></ion-input>
+            </ion-item>
+          </form>
+        </div>
+    </div>
+    <div class="ion-padding action-buttons">
+      <ion-button class="login-button"  expand="block" type="submit" (click)="enviar()" [disabled]="!fGroup.valid">
+        ENTRAR
+      </ion-button>
+      <p>Esqueceu a senha ?</p>
+<!--<ion-button class="signup-button" size="large" fill="outline">Cadastrar-se</ion-button>-->
+    </div>
+  </div>
+
+
+
+
+
+</ion-content>

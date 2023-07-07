@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'parkmanaus',
+  appId: 'com.parmanaus.app',
+  appName: 'Distruition Park',
   webDir: 'www',
   bundledWebRuntime: false
 };
